@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
+#import "Reachability.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -16,6 +17,29 @@
 @property (readonly, strong) NSPersistentContainer *persistentContainer;
 
 - (void)saveContext;
+-(void)displayLocationsAlert;
+-(void)displayLocationsAlertMainLocationsEnabled;
+-(void)loginChecking;
+-(void)loginPage;
+
+-(void)showAlertBlockOrAuthenticationCheck :(NSString *)message;
+
+
+//coredata
+@property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
+@property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+- (NSURL *)applicationDocumentsDirectory;
+- (NSManagedObjectContext *)managedObjectContext;
+- (void)saveContext;
+//end//
+
+
+
+
+@property (nonatomic) Reachability *hostReachability;
+@property (nonatomic) Reachability *internetReachability;
+
 
 
 @end
